@@ -34,13 +34,6 @@ async function main() {
 async function runConversation() {
   while (true) {
     const input = getInput("You: ");
-  
-  await runConversation();
-}
-
-async function runConversation() {
-  while (true) {
-    const input = getInput("You: ");
     
     if (input.toLowerCase() === "x") {
       console.log("\nThanks for the laughs! Goodbye! 👋");
@@ -71,5 +64,4 @@ async function runConversation() {
   }
 }
 
-// Start the application
 main(); 
