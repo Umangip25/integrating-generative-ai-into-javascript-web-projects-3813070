@@ -65,11 +65,16 @@ async function runConversation() {
     });
     const responseMessage = response.choices[0].message;
 
-  // Step 2: check if the model wanted to call a function
-  const toolCalls = responseMessage.tool_calls;
-  console.log(toolCalls.length > 0) 
+    // Step 2: check if the model wanted to call a function
+    if (responseMessage.tool_calls && responseMessage.tool_calls.length > 0) {
+      console.log(responseMessage.tool_calls.length > 0);
+      
+      } else {
+      // Regular response without function calls
+      messages.push(responseMessage);
+      console.log(`\nAssistant: ${responseMessage.content}\n`);
+    }
   }
- 
 }
 
 main(); 
