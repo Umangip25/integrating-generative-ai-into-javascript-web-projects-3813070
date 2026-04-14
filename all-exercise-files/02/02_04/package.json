@@ -1,11 +1,12 @@
 {
-  "name": "02",
+  "name": "02-04-challenge",
   "version": "1.0.0",
-  "description": "",
+  "description": "AI Jokes Generator Challenge",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "prettier": "prettier --check '**/**/*.{js,jsx,ts,tsx,css}'",
     "prettier:fix": "prettier --write '**/**/*.{js,jsx,ts,tsx,css}'"
   },
@@ -16,9 +17,9 @@
     "prettier": "^3.2.4"
   },
   "dependencies": {
-    "dotenv": "^16.4.1",
-    "nodemon": "^3.0.3",
-    "openai": "^4.26.0",
+    "dotenv": "^16.6.1",
+    "nodemon": "^3.1.14",
+    "openai": "^4.104.0",
     "readline-sync": "^1.4.10"
   }
 }
