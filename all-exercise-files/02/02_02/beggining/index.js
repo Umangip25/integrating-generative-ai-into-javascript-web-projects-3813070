@@ -1,9 +1,13 @@
-require('dotenv').config();
-const OpenAI = require('openai');
-const readlineSync = require('readline-sync');
+import 'dotenv/config.js';
+import OpenAI from 'openai';
+import readlineSync from 'readline-sync';
 
 // Open AI configuration
-const openai = new OpenAI();
+const client = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+let messages = [];
 
 // Get user input
 function getInput(promptMessage) {
@@ -17,8 +21,7 @@ async function main() {
   console.log('          CHAT WITH AI 🤖   ');
   console.log('----------------------------------\n');
   console.log("type 'x' to exit the conversation");
-  console.log(process.env.OPENAI_API_KEY);
-  runConversation();
+  await runConversation();
 }
 
 async function runConversation() {
@@ -28,6 +31,13 @@ async function runConversation() {
       console.log("Goodbye!");
       process.exit();
     }
+    messages.push({ role: 'user', content: input });
+    const response = await client.chat.completions.create({
+      model: 'gpt-3.5-turbo',
+      messages: messages,
+    });
+    messages.push(response.choices[0].message);
+    console.log('AI: ' + response.choices[0].message.content);
 
   }
 }

@@ -28,13 +28,7 @@ async function runConversation() {
       console.log("Goodbye!");
       process.exit();
     }
-    messages.push({ role: "user", content: input });
-    const completion = await openai.chat.completions.create({
-      messages: messages,
-      model: "gpt-3.5-turbo",
-    });
-    messages.push(completion.choices[0].message);
-    console.log(completion.choices[0].message.content);
+    // generate completions
   }
 }
 
