@@ -29,6 +29,8 @@ To resolve this issue:
 Sandy Ludosky
 
 Web Developer and Trainer
+
+I am working on this file for learning AI Integration
                 
 
 Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/sandy-ludosky?u=104).
